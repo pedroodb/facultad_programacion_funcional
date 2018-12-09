@@ -12,3 +12,7 @@ foldr' f base (x:xs) = f x (foldr' f base xs)
 foldMap' f = foldr' (\x foldedList -> f x : foldedList) []
 foldFilter' f = foldr' (\x foldedList -> if f x then x : foldedList else foldedList) []
 
+unfoldr' :: (b -> Maybe (a, b)) -> (b -> [a])
+unfoldr' f b = case f b of
+                Just (a, b') -> a : unfoldr f b'
+                Nothing -> []

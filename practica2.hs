@@ -21,18 +21,15 @@ pairFunc (f1,f2) x y = (f1 (f2 x), f2 (f1 y))
 
 --Ej 8)
 
-data ColorPrimario = Amarillo|Azul|Rojo deriving Eq Show
+data ColorPrimario = Amarillo|Azul|Rojo deriving Eq
 data ColorSecundario = Naranja|Violeta|Verde
 
-data Punto = Punto2D Int Int | Punto3D Int Int distintas
+data Punto = Punto2D Int Int | Punto3D Int Int Int
 
 suma (Punto2D x1 y1) (Punto2D x2 y2) = Punto2D (x1 + x2) (y1 + y2)
 
 -- Ej 10)
 --tom x = x x
-
--- Ej 11)
---smaller??
 
 second' :: a -> a
 second' = \x -> x
@@ -43,7 +40,7 @@ andThen = \x -> \y -> x && y
 iff :: Bool -> Bool -> Bool
 iff x y = if x then not y else y
 
---Las distintas x son lo mismo??
---alpha x x = x
+--alpha = \x -> \x -> x
+alpha x = alpha' where alpha' x = x
 
 -- 13) ??
